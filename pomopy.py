@@ -30,7 +30,7 @@ def main():
     print("\n"+colors.BOLD + "Hello, welcome to..." + colors.RESET)
     print_file("banner.txt", colors.RED)
     print(color_text(colors.GREEN,"POM-OH-PIE")+": The Terminal Pomodoro Timer")
-    print("❤")
+    print("♡")
     print(colors.RESET+"Enter `"+color_text(colors.CYAN,"help")+"` for a list of commands.")
     
 

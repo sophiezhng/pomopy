@@ -1,5 +1,7 @@
 # Pomopy (pom-oh-pie): An old-school solution for a modern problem
 
+!(Picture of terminal with pomopy)[images/pomopy.png]
+
 ## 🍅 What is Pomopy?
 Pomopy is a fun ASCII-art-filled, customizable time-management solution to optimize productivity. The Pomodoro Technique was developed by Francesco Cirillo in the 1980s and emphasizes working and taking breaks in regular intervals. 
 
@@ -59,7 +61,7 @@ Make sure your volume is unmuted to hear when the timer goes off!
 
 `tomato` - Recieve a mysterious tomato
 
-`hack` and `hack save` - Trick your friends into thinking you are a hacker by saving a custom message in advanced and entering `hack` when you are ready.
+`hack` and `hack save` - Trick your friends into thinking you are a hacker by saving a custom message in advance and entering `hack` when you are ready.
 
 ## 🍝 What's next for Pomopy 
 Future goals, subject to change include:

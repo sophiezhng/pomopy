@@ -1,6 +1,6 @@
-include tomato.txt
-include about.txt
-include preferences.json
-include troll.txt
-include banner.txt
-include digital_watch_alarm.mp3
+include data/tomato.txt
+include data/about.txt
+include data/preferences.json
+include data/troll.txt
+include data/banner.txt
+include data/digital_watch_alarm.mp3

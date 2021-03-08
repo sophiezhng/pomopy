@@ -128,7 +128,7 @@ def main():
                 set_pref(arg[1], float(arg[2]))
                 print("Break period updated to "+color_text(colors.MAGENTA, str(float(arg[2])))+" minutes.")
             else:
-                print("Did you mean `"+color_text(colors.CYAN, "set work [number of mins]")+"` or `"+color_text(colors.CYAN, "set work [number of mins]")+"`?")
+                print("Did you mean `"+color_text(colors.CYAN, "set work [number of mins]")+"` or `"+color_text(colors.CYAN, "set break [number of mins]")+"`?")
 
         # Print help    
         elif cmd == "help":

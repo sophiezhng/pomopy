@@ -11,25 +11,38 @@ Make sure your volume is unmuted to hear when the timer goes off!
 
 ### Basic Commands:
 `start` - Begin the timer from start of work period
+
 `stop` - End Pomodoro timer
+
 `remaining` - Remaining time left until next interval
+
 `pause` - Pause the timer temporarily until resume
+
 `resume` - Continue from where you left off
+
 `clear` - Clear the terminal
+
 `quit` - Quit the program
 
 ### Customize Settings:
 `set work [number of mins]` - Change length of work period
+
 `set break [number of mins]` - Change length of break period
+
 `auto off` - Manually switch between working and breaks
+
 ➪ if enabled, must use `start work` or `start break`
+
 `auto on` - Default setting: automatically switchs between work and break periods in succession
 
 ### More Info:
+
 `about` - Purpose of the program, author, credits, and more
 
 ### Fun Features:
+
 `tomato` - Recieve a mysterious tomato
+
 `hack` and `hack save` - Trick your friends into thinking you are a hacker by saving a custom message in advanced and entering `hack` when you are ready.
 
 ## 🍝 What's next for Pomopy 

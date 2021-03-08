@@ -3,7 +3,22 @@
 ## 🍅 What is Pomopy?
 Pomopy is a fun ASCII-art-filled, customizable time-management solution to optimize productivity. The Pomodoro Technique was developed by Francesco Cirillo in the 1980s and emphasizes working and taking breaks in regular intervals. 
 
-## 🌱 How is it built
+## Installiation
+```bash
+git clone https://github.com/sophiezhng/pomopy.git
+```
+### Install packages 
+```bash 
+cd pomopy
+pip install -r requirements.txt
+```
+
+## Usage
+```bash
+pomopy.py
+```
+
+## 🌱 How it's built
 This Pomodoro timer was built in Python using the playsound library to play an alarm effect after each interval. It saves your preferences in a JSON file locally so that you can start and stop easily. Use the `help` command to see all of available commands.
 
 ## Available Commands:

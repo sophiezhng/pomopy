@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Built-in modules
 import os
 import json

@@ -5,7 +5,7 @@
 ## 🍅 What is Pomopy?
 Pomopy is a fun ASCII-art-filled, customizable time-management solution to optimize productivity. The Pomodoro Technique was developed by Francesco Cirillo in the 1980s and emphasizes working and taking breaks in regular intervals. 
 
-## Installiation
+## Installation
 ```bash
 git clone https://github.com/sophiezhng/pomopy.git
 ```
@@ -54,11 +54,9 @@ Make sure your volume is unmuted to hear when the timer goes off!
 `auto on` - Default setting: automatically switchs between work and break periods in succession
 
 ### More Info:
-
 `about` - Purpose of the program, author, credits, and more
 
 ### Fun Features:
-
 `tomato` - Recieve a mysterious tomato
 
 `hack` and `hack save` - Trick your friends into thinking you are a hacker by saving a custom message in advance and entering `hack` when you are ready.
@@ -66,5 +64,5 @@ Make sure your volume is unmuted to hear when the timer goes off!
 ## 🍝 What's next for Pomopy 
 Future goals, subject to change include:
 1. Adding Desktop Notifications
-2. Two Modes: Live Updated Timer and a Hidden Timer
+2. Package for more convenient installation
 3. Simplify code to be shorter and more concise

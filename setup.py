@@ -25,7 +25,8 @@ setuptools.setup(
     ],
     platforms='any',
     scripts=['pomopy'],
-    data_files=['tomato.txt','about.txt', 'preferences.json', 'troll.txt', 'banner.txt', 'digital_watch_alarm.mp3'],
+    data_files=[('',['tomato.txt','about.txt', 'preferences.json', 'troll.txt', 'banner.txt', 'digital_watch_alarm.mp3'])],
     packages=setuptools.find_packages(),
+    include_package_data=True,
     python_requires=">=3.6",
 )

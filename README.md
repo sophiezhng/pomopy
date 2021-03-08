@@ -7,17 +7,15 @@ Pomopy is a fun ASCII-art-filled, customizable time-management solution to optim
 
 ## Installation
 ```bash
-git clone https://github.com/sophiezhng/pomopy.git
-```
-### Install packages 
-```bash 
+git clone https://github.com/sophiezhng/pomopy
 cd pomopy
 pip install -r requirements.txt
+python setup.py install
 ```
 
 ## Usage
 ```bash
-./pomopy
+pomopy
 ```
 
 ## 🌱 How it's built

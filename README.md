@@ -13,12 +13,11 @@ git clone https://github.com/sophiezhng/pomopy.git
 ```bash 
 cd pomopy
 pip install -r requirements.txt
-chmod +x pomopy.py
 ```
 
 ## Usage
 ```bash
-./pomopy.py
+./pomopy
 ```
 
 ## 🌱 How it's built

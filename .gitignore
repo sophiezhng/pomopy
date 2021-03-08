@@ -1,2 +1,6 @@
 
 .DS_Store
+__pycache__/pomotimer.cpython-38.pyc
+__pycache__/pomohelp.cpython-38.pyc
+__pycache__/file_management.cpython-38.pyc
+__pycache__/colors.cpython-38.pyc

@@ -22,6 +22,41 @@ timer = None
 data = None
 work_interval = None
 
+class pomotimer(threading.Timer):
+    def __init__(self, timeout, callback):
+        self.timer = threading.Timer(timeout, callback)
+
+        self.start_time = None
+        self.pause_time = None
+
+        # Used for creating a new timer upon renewal
+        self.timeout = timeout
+        self.callback = callback
+    
+    def start(self):
+        self.start_time = time.time()
+        self.timer.start()
+        
+    def pause(self):
+        self.pause_time = time.time()
+        self.timer.cancel()
+        return self.remaining()
+        
+    def resume(self):
+        self.timeout = self.remaining()
+        self.timer = threading.Timer(self.timeout, self.callback)
+        self.start_time = time.time()
+        self.timer.start()
+        return self.remaining() 
+    
+    def remaining(self):
+        if self.pause_time is None or self.pause_time < self.start_time:
+            return self.timeout - (time.time() - self.start_time)
+        return self.timeout - (self.pause_time - self.start_time)
+    
+    def cancel(self):
+        self.timer.cancel()
+        
 # Main Function
 def main():
     global timer
@@ -188,6 +223,109 @@ def finished_interval():
     threading.Thread(target=playsound, args=('digital_watch_alarm.mp3',), daemon=True).start()
     timer.cancel()
     timer = None
+
+class colors: # You may need to change color settings depending on OS
+    BOLD    = "\033[;1m"
+    UNDERLINE = "\033[;4m"
+    REVERSE = "\033[;7m"
+    RESET = "\033[0;0m"
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN  = '\033[36m'
+    WHITE = '\033[37m'
+
+# Return text with colors
+def color_text(color, string):
+    return(color+string+colors.RESET)
+
+# Set preferences with pref type and value
+def set_pref(pref_type, value):
+    file = open("preferences.json", "r")
+    prefs = json.load(file)
+    prefs[pref_type] = value
+    json.dump(prefs, open("preferences.json", "w"))
+
+# Print file with colored text
+def print_file(file_name, text_color):
+    f = open(file_name, 'r')
+    file_contents = f.read()
+    print(text_color + file_contents + colors.RESET)
+    f.close()
+
+def print_troll():
+    print(colors.GREEN, end = '')
+    f = open("troll.txt", 'r')
+    file_contents = f.read()
+    f.close()
+    for char in file_contents:
+        print(char, end = '')
+        time.sleep(0.0005)
+    items = range(32)
+    l = len(items)
+    # Initial call to print 0% progress
+    printProgressBar(0, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    for i in items:
+        # Do stuff...
+        time.sleep(0.1)
+        # Update Progress Bar
+        printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    data = json.load(open("preferences.json", "r"))
+    print("HACKING COMPLETE")
+    print(colors.RESET+data['troll'])
+
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end = printEnd)
+    # Print New Line on Complete
+    if iteration == total: 
+        print()
+
+# Output for the help command
+def print_help():
+    print(colors.UNDERLINE+"Available Commands:"+colors.RESET)
+    print("Make sure your volume is unmuted to hear when the timer goes off!\n")
+    
+    print(color_text(colors.GREEN, "Basic Commands:"))
+    generate_cmd(colors.CYAN,"start","Begin the timer from start of work period")
+    generate_cmd(colors.CYAN, "stop", "End Pomodoro timer")
+    generate_cmd(colors.CYAN, "remaining", "Remaining time left until next interval")
+    generate_cmd(colors.CYAN, "pause", "Pause the timer temporarily until resume")
+    generate_cmd(colors.CYAN, "resume", "Continue from where you left off")
+    generate_cmd(colors.CYAN, "clear", "Clear the terminal")
+    generate_cmd(colors.CYAN, "quit", "Quit the program")
+
+    print(color_text(colors.GREEN, "\nCustomize Settings:"))
+    generate_cmd(colors.CYAN, "set work [number of mins]", "Change length of work period")
+    generate_cmd(colors.CYAN, "set break [number of mins]", "Change length of break period")
+    generate_cmd(colors.CYAN, "auto off", "Manually switch between working and breaks")
+    print("➪ if enabled, must use `"+color_text(colors.CYAN, "start work")+"` or `"+color_text(colors.CYAN, "start break")+"`")
+    generate_cmd(colors.CYAN, "auto on", "Default setting: automatically switchs between work and break periods in succession")
+    
+    print(color_text(colors.GREEN, "\nMore Info:"))
+    generate_cmd(colors.CYAN, "about", "Purpose of the program, author, credits, and more")
+    generate_cmd(colors.CYAN, "tomato", "Recieve a mysterious tomato")
+
+# Generate the format for each command in the help output
+def generate_cmd(color, cmd_name, desc):
+    print("`"+color_text(color, cmd_name)+"` - "+desc)
     
 if __name__ == "__main__":
     main()

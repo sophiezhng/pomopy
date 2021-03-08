@@ -11,12 +11,6 @@ import time
 # Require install
 from playsound import playsound
 
-# Custom Python Modules
-from colors import *
-from pomohelp import *
-from file_management import *
-from pomotimer import *
-
 # Global Variables
 timer = None
 data = None

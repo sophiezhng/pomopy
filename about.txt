@@ -1,0 +1,21 @@
+-ˏˋ POMOPY: An old-school solution for a modern problem ˊˎ-
+
+A fun ASCII-art-filled, customizable time-management solution to optimize productivity. The Pomodoro Technique was developed by Francesco Cirillo in the 1980s and emphasizes working and taking breaks in regular intervals. 
+
+POMOPY FEATURES:
+This Pomodoro timer saves your preferences in a file locally so that you can start and stop easily. Use the `help` command to see all of the available commands.
+
+ADDITIONAL INFO:
+Author: Sophie Zhang
+License: MIT
+Github Repository: https://github.com/sophiezhng/pomopy
+
+CREDITS:
+Pomodoro technique by: Francesco Cirillo
+ASCII Text Generator: https://manytools.org/hacker-tools/ascii-banner/
+Tomato Art: https://textart.sh/topic/tomato
+Progress Bar: https://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console
+
+Inspired by:
+https://github.com/JaDogg/pydoro
+https://github.com/mehdidc/pomodoro

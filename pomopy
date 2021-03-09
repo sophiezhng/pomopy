@@ -11,7 +11,8 @@ import time
 # Require install
 from playsound import playsound
 
-this_dir, this_filename = os.path.split(__file__)
+# Dirty solution - needs to read txt and json files but egg isn't working?
+this_dir = os.path.join(os.path.expanduser("~"), "pomopy")
 
 # Global Variables
 timer = None

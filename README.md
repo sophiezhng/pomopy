@@ -9,7 +9,7 @@ Pomopy is a fun ASCII-art-filled, customizable, time-management solution to opti
 ```bash
 pip install pomopy
 ```
-or
+OR
 ```bash
 git clone https://github.com/sophiezhng/pomopy
 cd pomopy

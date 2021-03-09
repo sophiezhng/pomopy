@@ -362,7 +362,9 @@ def get_path(file_name):
     global script_dir
     file_dirs = [
         os.path.join(script_dir, "..", ".."),
-        os.path.join(script_dir, "data")
+        script_dir,
+        sys.prefix,
+        "."
     ]
     for _dir in file_dirs:
         data_file = os.path.join(_dir, file_name)

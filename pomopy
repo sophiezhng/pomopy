@@ -342,6 +342,8 @@ def print_help():
     generate_cmd(colors.CYAN, "quit", "Quit the program")
 
     print(color_text(colors.GREEN, "\nCustomize Settings:"))
+    generate_cmd(colors.CYAN, "mute", "Mute the alarm between every interval.")
+    generate_cmd(colors.CYAN, "unmute", "Default setting: Alarm rings between each interval.")
     generate_cmd(colors.CYAN, "set work [number of mins]", "Change length of work period")
     generate_cmd(colors.CYAN, "set break [number of mins]", "Change length of break period")
     generate_cmd(colors.CYAN, "auto off", "Manually switch between working and breaks")
@@ -359,10 +361,8 @@ def generate_cmd(color, cmd_name, desc):
 def get_path(file_name):
     global script_dir
     file_dirs = [
-        '.',
-        script_dir,
-        os.path.dirname(__file__),
         os.path.join(script_dir, "..", ".."),
+        os.path.join(script_dir, "data")
     ]
     for _dir in file_dirs:
         data_file = os.path.join(_dir, file_name)

@@ -1,3 +1,0 @@
-include data/*.txt
-include data/preferences.json
-include data/digital_watch_alarm.mp3

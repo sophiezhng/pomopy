@@ -7,17 +7,17 @@ import json
 import readline
 import threading 
 import time
+import sys
 
 # Require install
 from playsound import playsound
-
-# Dirty solution - needs to read txt and json files but egg isn't working?
-this_dir = os.path.join(os.path.expanduser("~"), "pomopy")
 
 # Global Variables
 timer = None
 data = None
 work_interval = None
+
+script_dir = os.path.dirname(__file__)
 
 class pomotimer(threading.Timer):
     def __init__(self, timeout, callback):
@@ -75,7 +75,7 @@ def main():
         if cmd.startswith("start"):
             if timer == None:
                 args = cmd.split(' ')
-                DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+                DATA_PATH = get_path("preferences.json")
                 data = json.load(open(DATA_PATH, "r"))
                 print("Starting Pomodoro for a...")
                 print(color_text(colors.BLUE,str(data['work'])+" minute work period and a "+str(data['break'])+" minute break"))
@@ -200,7 +200,7 @@ def next_interval():
     global this_dir
     
     work_interval = not work_interval
-    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    DATA_PATH = get_path("preferences.json")
     data = json.load(open(DATA_PATH, "r"))
 
     if data['auto'] == True:
@@ -219,10 +219,10 @@ def next_interval():
             timer = pomotimer(data['break']*60, finished_interval)
             print(color_text('\033[1;32m',">> Take a break for "+str(data['break'])+" minutes!"))
             
-    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    DATA_PATH = get_path("preferences.json")
     data = json.load(open(DATA_PATH, "r"))
     if not data['mute']:
-        DATA_PATH = os.path.join(this_dir, "data", "digital_watch_alarm.mp3")
+        DATA_PATH = get_path("digital_watch_alarm.mp3")
         threading.Thread(target=playsound, args=(DATA_PATH,), daemon=True).start()
     timer.start()
 
@@ -232,10 +232,10 @@ def finished_interval():
     global data
     
     print(color_text(colors.BLUE, "Timer has been ended."))
-    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    DATA_PATH = get_path("preferences.json")
     data = json.load(open(DATA_PATH, "r"))
     if not data['mute']:
-        DATA_PATH = os.path.join(this_dir, "data", "digital_watch_alarm.mp3")
+        DATA_PATH = get_path("digital_watch_alarm.mp3")
         threading.Thread(target=playsound, args=(DATA_PATH,), daemon=True).start()
 
     timer.cancel()
@@ -262,7 +262,7 @@ def color_text(color, string):
 # Set preferences with pref type and value
 def set_pref(pref_type, value):
     global this_dir
-    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    DATA_PATH = get_path("preferences.json")
     
     file = open(DATA_PATH, "r")
     prefs = json.load(file)
@@ -272,7 +272,7 @@ def set_pref(pref_type, value):
 # Print file with colored text
 def print_file(file_name, text_color):
     global this_dir
-    DATA_PATH = os.path.join(this_dir, "data", file_name)
+    DATA_PATH = get_path(file_name)
     
     f = open(DATA_PATH, 'r')
     file_contents = f.read()
@@ -284,7 +284,7 @@ def print_troll():
     
     print(colors.GREEN, end = '')
     
-    DATA_PATH = os.path.join(this_dir, "data", "troll.txt")
+    DATA_PATH = get_path("troll.txt")
     f = open(DATA_PATH, 'r')
     file_contents = f.read()
     f.close()
@@ -301,7 +301,7 @@ def print_troll():
         # Update Progress Bar
         printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
         
-    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    DATA_PATH = get_path("preferences.json")
     data = json.load(open(DATA_PATH, "r"))
     print("HACKING COMPLETE")
     print(colors.RESET+data['troll'])
@@ -355,6 +355,20 @@ def print_help():
 # Generate the format for each command in the help output
 def generate_cmd(color, cmd_name, desc):
     print("`"+color_text(color, cmd_name)+"` - "+desc)
-    
+
+def get_path(file_name):
+    global script_dir
+    file_dirs = [
+        '.',
+        script_dir,
+        os.path.dirname(__file__),
+        os.path.join(script_dir, "..", ".."),
+    ]
+    for _dir in file_dirs:
+        data_file = os.path.join(_dir, file_name)
+        if os.path.exists(data_file):
+            return data_file
+    sys.exit("ERROR: File not found. Send in an issue at https://github.com/sophiezhng/pomopy/issues")
+
 if __name__ == "__main__":
     main()

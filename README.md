@@ -31,7 +31,3 @@ This Pomodoro timer was built in Python using the playsound library to play an a
 - [ASCII Text Generator](https://manytools.org/hacker-tools/ascii-banner/)
 - [Tomato Art](https://textart.sh/topic/tomato)
 - [Progress Bar](https://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console)
-
-Inspired by:
-https://github.com/JaDogg/pydoro
-https://github.com/mehdidc/pomodoro

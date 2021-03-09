@@ -229,6 +229,7 @@ def next_interval():
 def finished_interval():
     global timer
     global this_dir
+    global data
     
     print(color_text(colors.BLUE, "Timer has been ended."))
     DATA_PATH = os.path.join(this_dir, "data", "preferences.json")

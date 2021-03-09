@@ -1,11 +1,15 @@
 # Pomopy (pom-oh-pie): An old-school solution for a modern problem.
 
-![Picture of terminal with pomopy](images/pomopy.png)
+![Picture of terminal with pomopy](https://github.com/sophiezhng/pomopy/raw/master/images/pomopy.png)
 
 ## 🍅 What is Pomopy?
 Pomopy is a fun ASCII-art-filled, customizable, time-management solution to optimize productivity. The Pomodoro Technique was developed by Francesco Cirillo in the 1980s and emphasizes working and taking breaks in regular intervals. 
 
 ## Installation
+```bash
+pip install pomopy
+```
+or
 ```bash
 git clone https://github.com/sophiezhng/pomopy
 cd pomopy

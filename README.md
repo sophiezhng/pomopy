@@ -26,7 +26,7 @@ Read Wiki For More Info => [Full List of Commands](https://github.com/sophiezhng
 This Pomodoro timer was built in Python using the playsound library to play an alarm effect after each interval. It saves your preferences in a JSON file locally so that you can start and stop easily. 
 
 ## 🍝 Credits
-- [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) by: Francesco Cirillo
+- [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) - by: Francesco Cirillo
 - [playsound](https://github.com/TaylorSMarks/playsound)
 - [ASCII Text Generator](https://manytools.org/hacker-tools/ascii-banner/)
 - [Tomato Art](https://textart.sh/topic/tomato)

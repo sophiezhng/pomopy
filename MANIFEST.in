@@ -1,6 +1,3 @@
-include data/tomato.txt
-include data/about.txt
 include data/*.txt
 include data/preferences.json
-include data/banner.txt
 include data/digital_watch_alarm.mp3

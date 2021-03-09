@@ -23,7 +23,7 @@ Make sure your volume is unmuted to hear when the timer goes off!
 ## 🌱 How it's built
 This Pomodoro timer was built in Python using the playsound library to play an alarm effect after each interval. It saves your preferences in a JSON file locally so that you can start and stop easily. Use the `help` command to see all of available commands.
 
-## [Full List of Commands](https://github.com/sophiezhng/pomopy/wiki/Commands)
+Read Wiki For More Info => [Full List of Commands](https://github.com/sophiezhng/pomopy/wiki/Commands)
 
 ## 🍝 What's next for Pomopy 
 Future goals, subject to change include:

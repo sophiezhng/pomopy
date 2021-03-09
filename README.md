@@ -18,49 +18,12 @@ python setup.py install
 pomopy
 ```
 
+Make sure your volume is unmuted to hear when the timer goes off!
+
 ## 🌱 How it's built
 This Pomodoro timer was built in Python using the playsound library to play an alarm effect after each interval. It saves your preferences in a JSON file locally so that you can start and stop easily. Use the `help` command to see all of available commands.
 
-## Available Commands:
-Make sure your volume is unmuted to hear when the timer goes off!
-
-### Basic Commands:
-`start` - Begin the timer from start of work period
-
-`stop` - End Pomodoro timer
-
-`remaining` - Remaining time left until next interval
-
-`pause` - Pause the timer temporarily until resume
-
-`resume` - Continue from where you left off
-
-`mute` - Mute the alarm between every interval.
-
-`unmute` - Default setting: Alarm rings between each interval.
-
-`clear` - Clear the terminal
-
-`quit` - Quit the program
-
-### Customize Settings:
-`set work [number of mins]` - Change length of work period
-
-`set break [number of mins]` - Change length of break period
-
-`auto off` - Manually switch between working and breaks
-
-➪ if enabled, must use `start work` or `start break`
-
-`auto on` - Default setting: automatically switchs between work and break periods in succession
-
-### More Info:
-`about` - Purpose of the program, author, credits, and more
-
-### Fun Features:
-`tomato` - Recieve a mysterious tomato
-
-`hack` and `hack save` - Trick your friends into thinking you are a hacker by saving a custom message in advance and entering `hack` when you are ready.
+## [Available Commands](https://github.com/sophiezhng/pomopy/wiki/Commands)
 
 ## 🍝 What's next for Pomopy 
 Future goals, subject to change include:

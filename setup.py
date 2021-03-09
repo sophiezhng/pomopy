@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pomopy",
-    version="0.0.1.3",
+    version="0.0.2",
     author="Sophie Zhang",
     author_email="sophie.zhangg@icloud.com",
     description="Pomopy is a fun ASCII-art-filled, customizable time-management solution to optimize productivity.",

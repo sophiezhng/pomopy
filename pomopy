@@ -161,6 +161,14 @@ def main():
             else:
                 print("Did you mean `"+color_text(colors.CYAN, "set work [number of mins]")+"` or `"+color_text(colors.CYAN, "set break [number of mins]")+"`?")
 
+        elif cmd == "mute":
+            set_pref("mute", True)
+            print("Pomopy has been muted. Enter `"+color_text(colors.CYAN, "unmute")+"` to unmute.")
+            
+        elif cmd == "unmute":
+            set_pref("mute", False)
+            print("Pomopy has been unmuted. Enter `"+color_text(colors.CYAN, "mute")+"` to mute.")
+            
         # Print help    
         elif cmd == "help":
             print_help()
@@ -203,9 +211,6 @@ def next_interval():
             timer = pomotimer(data['break']*60, next_interval)
             print(color_text('\033[1;32m',">> Take a break for "+str(data['break'])+" minutes!"))
             
-        DATA_PATH = os.path.join(this_dir, "data", "digital_watch_alarm.mp3")
-        threading.Thread(target=playsound, args=(DATA_PATH,), daemon=True).start()
-        timer.start()
     else:
         if work_interval:
             timer = pomotimer(data['work']*60, finished_interval)
@@ -213,18 +218,25 @@ def next_interval():
         else:
             timer = pomotimer(data['break']*60, finished_interval)
             print(color_text('\033[1;32m',">> Take a break for "+str(data['break'])+" minutes!"))
-
+            
+    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    data = json.load(open(DATA_PATH, "r"))
+    if not data['mute']:
         DATA_PATH = os.path.join(this_dir, "data", "digital_watch_alarm.mp3")
         threading.Thread(target=playsound, args=(DATA_PATH,), daemon=True).start()
-        timer.start()
+    timer.start()
 
 def finished_interval():
     global timer
     global this_dir
     
     print(color_text(colors.BLUE, "Timer has been ended."))
-    DATA_PATH = os.path.join(this_dir, "data", "digital_watch_alarm.mp3")
-    threading.Thread(target=playsound, args=(DATA_PATH,), daemon=True).start()
+    DATA_PATH = os.path.join(this_dir, "data", "preferences.json")
+    data = json.load(open(DATA_PATH, "r"))
+    if not data['mute']:
+        DATA_PATH = os.path.join(this_dir, "data", "digital_watch_alarm.mp3")
+        threading.Thread(target=playsound, args=(DATA_PATH,), daemon=True).start()
+
     timer.cancel()
     timer = None
 

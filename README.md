@@ -35,6 +35,10 @@ Make sure your volume is unmuted to hear when the timer goes off!
 
 `resume` - Continue from where you left off
 
+`mute` - Mute the alarm between every interval.
+
+`unmute` - Default setting: Alarm rings between each interval.
+
 `clear` - Clear the terminal
 
 `quit` - Quit the program

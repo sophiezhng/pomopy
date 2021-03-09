@@ -17,7 +17,9 @@ python setup.py install
 ```bash
 pomopy
 ```
+
 Make sure your volume is unmuted to hear when the timer goes off!
+
 Use the `help` command to see all of the available commands.
 
 Read Wiki For More Info => [Full List of Commands](https://github.com/sophiezhng/pomopy/wiki/Commands)

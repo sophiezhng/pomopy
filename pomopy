@@ -147,7 +147,7 @@ def main():
                 set_pref("auto", False)
                 print("Now working time and breaks must now be started manually.")
             else:
-                print("Did you mean `"+color_text(colors.CYAN, "auto on")+"` or `"+color_text(colors.CYAN, "auto off"+"`?")+"`.")
+                print("Did you mean `"+color_text(colors.CYAN, "auto on")+"` or `"+color_text(colors.CYAN, "auto off")+"`?")
 
         # set work or break period
         elif cmd.startswith("set ") and len(cmd.split(" ")) <= 3:
@@ -342,13 +342,13 @@ def print_help():
     generate_cmd(colors.CYAN, "quit", "Quit the program")
 
     print(color_text(colors.GREEN, "\nCustomize Settings:"))
-    generate_cmd(colors.CYAN, "mute", "Mute the alarm between every interval.")
-    generate_cmd(colors.CYAN, "unmute", "Default setting: Alarm rings between each interval.")
+    generate_cmd(colors.CYAN, "mute", "Mute the alarm between every interval")
+    generate_cmd(colors.CYAN, "unmute", "Default setting: Alarm rings between each interval")
     generate_cmd(colors.CYAN, "set work [number of mins]", "Change length of work period")
     generate_cmd(colors.CYAN, "set break [number of mins]", "Change length of break period")
     generate_cmd(colors.CYAN, "auto off", "Manually switch between working and breaks")
     print("➪ if enabled, must use `"+color_text(colors.CYAN, "start work")+"` or `"+color_text(colors.CYAN, "start break")+"`")
-    generate_cmd(colors.CYAN, "auto on", "Default setting: automatically switchs between work and break periods in succession")
+    generate_cmd(colors.CYAN, "auto on", "Default setting: automatically switchs between work and break")
     
     print(color_text(colors.GREEN, "\nMore Info:"))
     generate_cmd(colors.CYAN, "about", "Purpose of the program, author, credits, and more")
